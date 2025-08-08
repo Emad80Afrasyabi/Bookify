@@ -30,19 +30,21 @@ public sealed class Booking : Entity
         CreatedOnUtc = createdOnUtc;
     }
 
+    private Booking() { }
+
     public Guid ApartmentId { get; private set; }
 
     public Guid UserId { get; private set; }
 
-    public DateRange Duration { get; private set; }
+    public DateRange Duration { get; private set; } = null!;
 
-    public Money PriceForPeriod { get; private set; }
+    public Money PriceForPeriod { get; private set; } = null!;
 
-    public Money CleaningFee { get; private set; }
+    public Money CleaningFee { get; private set; } = null!;
 
-    public Money AmenitiesUpCharge { get; private set; }
+    public Money AmenitiesUpCharge { get; private set; } = null!;
 
-    public Money TotalPrice { get; private set; }
+    public Money TotalPrice { get; private set; } = null!;
 
     public BookingStatus Status { get; private set; }
 

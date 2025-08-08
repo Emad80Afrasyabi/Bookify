@@ -13,11 +13,13 @@ public sealed class User : Entity
         Email = email;
     }
 
-    public FirstName FirstName { get; private set; }
+    private User() { }
 
-    public LastName LastName { get; private set; }
+    public FirstName FirstName { get; private set; } = null!;
 
-    public Email Email { get; private set; }
+    public LastName LastName { get; private set; } = null!;
+
+    public Email Email { get; private set; } = null!;
 
     public static User Create(FirstName firstName, LastName lastName, Email email)
     {
