@@ -4,7 +4,6 @@ using Bookify.Infrastructure;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +26,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCustomExceptionHandler();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 
