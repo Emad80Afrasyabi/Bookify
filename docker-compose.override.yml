@@ -3,12 +3,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_URLS=http://+:8080
     ports:
       - "5034:8080"
       - "7238:8081"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      # User secrets - conditional mounting based on OS
+      - ~/.microsoft/usersecrets:/home/app/.microsoft/usersecrets:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+      # HTTPS certificates - conditional mounting based on OS
+      - ~/.aspnet/https:/home/app/.aspnet/https:ro
+      - ~/.aspnet/https:/root/.aspnet/https:ro
