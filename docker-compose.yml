@@ -32,3 +32,13 @@ services:
       - ./.files/bookify-realm-export.json:/opt/keycloak/data/import/realm.json
     ports:
       - "18080:8080"
+        
+  bookify-seq:
+    image: datalust/seq:latest
+    container_name: Bookify.Seq
+    environment:
+      - SEQ_FIRSTRUN_NOAUTHENTICATION=true
+      - ACCEPT_EULA=Y
+    ports:
+      - "5341:5341"
+      - "8081:80"
