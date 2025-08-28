@@ -1,8 +1,8 @@
-﻿using Bookify.Application.Users.GetLoggedInUser;
+﻿using Asp.Versioning;
+using Bookify.Application.Users.GetLoggedInUser;
 using Bookify.Application.Users.LogInUser;
 using Bookify.Application.Users.RegisterUser;
 using Bookify.Domain.Abstractions;
-using Bookify.Domain.Users;
 using Bookify.Infrastructure.Authorization;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bookify.Api.Controllers.Users;
 
 [ApiController]
-[Route(template: "api/users")]
+[ApiVersion(ApiVersions.V1)]
+[Route(template: "api/v{version:apiVersion}/users")]
 public class UsersController(ISender sender) : ControllerBase
 {
     [HasPermission(Permissions.UsersRead)]
