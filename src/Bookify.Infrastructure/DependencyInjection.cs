@@ -41,6 +41,8 @@ public static class DependencyInjection
         AddAuthentication(services, configuration);
         
         AddAuthorization(services);
+        
+        AddCaching(services, configuration);
 
         return services;
     }
