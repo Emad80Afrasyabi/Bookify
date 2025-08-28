@@ -10,7 +10,7 @@ public sealed class Role
         Name = name;
     }
 
-    private Role() { }
+    public Role() { }
 
     public int Id { get; init; }
 
