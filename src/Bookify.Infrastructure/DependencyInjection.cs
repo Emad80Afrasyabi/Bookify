@@ -7,6 +7,7 @@ using Bookify.Application.Abstractions.Email;
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
+using Bookify.Domain.Reviews;
 using Bookify.Domain.Users;
 using Bookify.Infrastructure.Authentication;
 using Bookify.Infrastructure.Authorization;
@@ -42,15 +43,15 @@ public static class DependencyInjection
         AddPersistence(services, configuration);
 
         AddAuthentication(services, configuration);
-        
+
         AddAuthorization(services);
-        
+
         AddCaching(services, configuration);
-        
+
         AddHealthChecks(services, configuration);
-        
+
         AddApiVersioning(services);
-        
+
         AddBackgroundJobs(services, configuration);
 
         return services;
@@ -70,6 +71,8 @@ public static class DependencyInjection
         services.AddScoped<IApartmentRepository, ApartmentRepository>();
 
         services.AddScoped<IBookingRepository, BookingRepository>();
+
+        services.AddScoped<IReviewRepository, ReviewRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
@@ -104,23 +107,23 @@ public static class DependencyInjection
 
             httpClient.BaseAddress = new Uri(keycloakOptions.TokenUrl);
         });
-        
+
         services.AddHttpContextAccessor();
 
         services.AddScoped<IUserContext, UserContext>();
     }
-    
+
     private static void AddAuthorization(IServiceCollection services)
     {
         services.AddScoped<AuthorizationService>();
 
         services.AddTransient<IClaimsTransformation, CustomClaimsTransformation>();
-        
+
         services.AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
         services.AddTransient<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
     }
-    
+
     private static void AddCaching(IServiceCollection services, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString(name: "Cache") ?? throw new ArgumentNullException(nameof(configuration));
@@ -129,14 +132,14 @@ public static class DependencyInjection
 
         services.AddSingleton<ICacheService, CacheService>();
     }
-    
+
     private static void AddHealthChecks(IServiceCollection services, IConfiguration configuration)
     {
         services.AddHealthChecks().AddNpgSql(configuration.GetConnectionString(name: "Database")!)
                                   .AddRedis(configuration.GetConnectionString(name: "Cache")!)
                                   .AddUrlGroup(new Uri(configuration["KeyCloak:BaseUrl"]!), HttpMethod.Get, name: "keycloak");
     }
-    
+
     private static void AddApiVersioning(IServiceCollection services)
     {
         services.AddApiVersioning(options =>
@@ -152,7 +155,7 @@ public static class DependencyInjection
                     options.SubstituteApiVersionInUrl = true;
                 });
     }
-    
+
     private static void AddBackgroundJobs(IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<OutboxOptions>(configuration.GetSection("Outbox"));

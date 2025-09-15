@@ -22,6 +22,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Domain.UnitTests", "test\Bookify.Domain.UnitTests\Bookify.Domain.UnitTests.csproj", "{8390E2CB-619C-4697-B16F-3292942A96EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Application.UnitTests", "test\Bookify.Application.UnitTests\Bookify.Application.UnitTests.csproj", "{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.ArchitectureTests", "test\Bookify.ArchitectureTests\Bookify.ArchitectureTests.csproj", "{2F59FB23-C3B0-4918-B6B1-8DB231E14C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Application.IntegrationTests", "test\Bookify.Application.IntegrationTests\Bookify.Application.IntegrationTests.csproj", "{7BCDF006-2477-4B6E-955F-DC2CA7594A9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Api.FunctionalTests", "test\Bookify.Api.FunctionalTests\Bookify.Api.FunctionalTests.csproj", "{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +58,26 @@ Global
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8390E2CB-619C-4697-B16F-3292942A96EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8390E2CB-619C-4697-B16F-3292942A96EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8390E2CB-619C-4697-B16F-3292942A96EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8390E2CB-619C-4697-B16F-3292942A96EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F59FB23-C3B0-4918-B6B1-8DB231E14C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F59FB23-C3B0-4918-B6B1-8DB231E14C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F59FB23-C3B0-4918-B6B1-8DB231E14C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F59FB23-C3B0-4918-B6B1-8DB231E14C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCDF006-2477-4B6E-955F-DC2CA7594A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCDF006-2477-4B6E-955F-DC2CA7594A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCDF006-2477-4B6E-955F-DC2CA7594A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCDF006-2477-4B6E-955F-DC2CA7594A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +87,10 @@ Global
 		{4FF845F7-9C97-49EF-B0BB-535A36E9EE77} = {48F47438-9EBF-4AA1-8BB1-4D52B9098666}
 		{D929BD77-0EC8-44D8-A92C-7A3A87D9FAE4} = {48F47438-9EBF-4AA1-8BB1-4D52B9098666}
 		{2C01185C-81A3-47E8-A4B4-702DCFDECAF9} = {48F47438-9EBF-4AA1-8BB1-4D52B9098666}
+		{8390E2CB-619C-4697-B16F-3292942A96EA} = {A2F9739F-F49B-4524-A3EA-59556944BF3B}
+		{F97206E0-6EA5-4EE3-A0AD-41FC9E5C849B} = {A2F9739F-F49B-4524-A3EA-59556944BF3B}
+		{2F59FB23-C3B0-4918-B6B1-8DB231E14C01} = {A2F9739F-F49B-4524-A3EA-59556944BF3B}
+		{7BCDF006-2477-4B6E-955F-DC2CA7594A9E} = {A2F9739F-F49B-4524-A3EA-59556944BF3B}
+		{A4DE67F0-5D74-40AC-BD3F-F0C1BA2DC428} = {A2F9739F-F49B-4524-A3EA-59556944BF3B}
 	EndGlobalSection
 EndGlobal
